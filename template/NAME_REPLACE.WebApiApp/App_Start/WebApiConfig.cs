@@ -1,7 +1,7 @@
 ﻿using System.Net.Http.Formatting;
 using System.Web.Http;
 
-namespace NAME_REPLACE.WebMvcApp.App_Start
+namespace NAME_REPLACE.WebMvcApp
 {
     public class WebApiConfig
     {

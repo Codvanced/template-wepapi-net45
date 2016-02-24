@@ -1,12 +1,4 @@
-﻿using System.Web.Mvc;
-using System.Web.Routing;
-using DryIoc.Mvc;
-using NAME_REPLACE.Binding;
-using IOC.FW.Core.Abstraction.Container.Binding;
-using IOC.FW.ContainerManager.DryIoc;
-using NAME_REPLACE.WebMvcApp.App_Start;
-using System.Web.Http;
-using DryIoc.WebApi;
+﻿using System.Web.Http;
 
 namespace NAME_REPLACE.WebMvcApp
 {
@@ -17,22 +9,7 @@ namespace NAME_REPLACE.WebMvcApp
         protected void Application_Start()
         {
             WebApiConfig.Register(GlobalConfiguration.Configuration);
-
-            var adapter = new DryIocAdapter();
-            
-            var binders = new IBinding[]{
-                new BusinessBinder(),
-                new DaoBinder(),
-                new SharedBinder(),
-                new FrameworkBinder(),
-            };
-
-            foreach (var binder in binders)
-                binder.SetBinding(adapter);
-
-            var containerWithMvc = adapter
-                ._container
-                .WithWebApi(GlobalConfiguration.Configuration);
+            IoCFrameworkConfig.Register(GlobalConfiguration.Configuration);
         }
     }
 }
