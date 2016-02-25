@@ -1,1 +1,1 @@
-# template-webapi-net45
+# Template of Web Api in .Net 4.5 and with Codvanced IoC Framework
